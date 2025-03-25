@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var humanScore = 0
+    var computerScore = 0
+
+function getComputerChoice() {
+    const choices = ["Rock", "Paper", "Scissors"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
+
+function getHumanChoice() {
+    const personChoice = prompt("Choose Rock Paker or Scissors")
+    return personChoice
+}
+
+function playRound(getHumanChoice, getComputerChoice) {
+    if (getHumanChoice === getComputerChoice) {
+        return `It's a tie! You both chose ${getHumanChoice}`;
+    } else if (
+        (getHumanChoice === "Rock" && getComputerChoice === "Scissors") ||
+        (getHumanChoice === "Scissors" && getComputerChoice === "Paper") ||
+        (getHumanChoice === "Paper" && getComputerChoice === "Rock")
+    ) {
+        humanScore++;
+        return "You Win!";
+    } else {
+        computerScore++;
+        return "You Lose!";
+    }
+}
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+console.log(playRound(humanSelection, computerSelection))
+console.log("the scores are Human: " + humanScore + " Computer: " + computerScore)
+
+</script>
+</html>
